@@ -7,20 +7,21 @@ using System.Collections;
 
 public class BabyWhaleBehaviour : MonoBehaviour
 {
-
+    // Has this child been found
+    bool found = false;
 
     private void OnTriggerStay(Collider other)
     {
         // If the collision is with player
-        if (other.tag == "Player")
+        if (other.tag == "Player" && found == false)
         {
             // Parent to player when behind
-            if (Vector3.Distance(transform.position, other.transform.position) > 2)
+            if (Vector3.Distance(transform.position, other.transform.position) > 4)
             {
-                Debug.Log("Travelling to parent");
+               
                 // This baby has been found; move to just behind player
                 // Don't take Y axis into account
-                Vector3 target = new Vector3(other.transform.position.x + 5, transform.position.y, other.transform.position.z);
+                Vector3 target = new Vector3(other.transform.position.x + 2, transform.position.y, other.transform.position.z);
                 transform.LookAt(target);
                 transform.position += transform.forward * 5.0f * Time.deltaTime;
 
@@ -30,6 +31,7 @@ public class BabyWhaleBehaviour : MonoBehaviour
             {
                 transform.SetParent(other.transform);
                 Debug.Log("Parented");
+                found = true;
             }
         }
     }
