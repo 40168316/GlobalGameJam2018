@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Scripts\PlayerBehaviourScript.cs" />
+    <Compile Include="Assets\_Scripts\BabyWhaleBehaviour.cs" />
+    <Compile Include="Assets\_Scripts\CameraBehaviourScript.cs" />
+    <Compile Include="Assets\_Scripts\MammaWhaleController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
